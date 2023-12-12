@@ -258,11 +258,6 @@ impl_primitive_serializable! {
     npy: [ (main_ty: TypeChar::Float) (support_ty: TypeChar::Float) ]
 }
 
-#[cfg(feature = "half")]
-impl_primitive_serializable! {
-    rust: [ [2 f16] ]
-    npy: [ (main_ty: TypeChar::Float) (support_ty: TypeChar::Float) ]
-}
 impl_primitive_serializable! {
     rust: [ [1 bool] ]
     npy: [ (main_ty: TypeChar::Bool) (support_ty: TypeChar::Bool) ]
