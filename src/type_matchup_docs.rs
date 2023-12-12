@@ -24,9 +24,10 @@ Integers and floats correspond to simple dtypes:
 
 ### Floats
 
-The rust types `f32`, `f64` use type code `f`.
+* The rust types `f32`, `f64` use type code `f`.
+* When the **`"half"`** feature is enabled, [`f16`] is also supported.
 
-**Notice:** numpy *does* have 16-bit and 128-bit floats, but neither is currently supported by `npyz`.
+**Notice:** numpy *does* have 128-bit floats, but it is not currently supported by `npyz`.
 
 ### Complex
 
@@ -204,6 +205,10 @@ use crate::{AutoSerialize, DType, Deserialize, FixedSizeBytes, Serialize, TypeSt
 #[cfg(feature = "arrayvec")]
 #[allow(unused)] // used by docstring
 use arrayvec::{self, ArrayString, ArrayVec};
+
+#[cfg(feature = "half")]
+#[allow(unused)] // used by docstring
+use half::f16;
 
 #[cfg(feature = "complex")]
 #[allow(unused)] // used by docstring

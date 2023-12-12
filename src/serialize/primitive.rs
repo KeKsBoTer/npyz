@@ -74,12 +74,12 @@ macro_rules! derive_float_primitive_read_write {
     };
 }
 
-derive_int_primitive_read_write! { u8 u16 u32 u64 }
-derive_int_primitive_read_write! { i8 i16 i32 i64 }
+derive_int_primitive_read_write!{ u8 u16 u32 u64 }
+derive_int_primitive_read_write!{ i8 i16 i32 i64 }
 #[cfg(feature = "half")]
-derive_float_primitive_read_write! { f16 as u16 }
-derive_float_primitive_read_write! { f32 as u32 }
-derive_float_primitive_read_write! { f64 as u64 }
+derive_float_primitive_read_write!{ f16 as u16 }
+derive_float_primitive_read_write!{ f32 as u32 }
+derive_float_primitive_read_write!{ f64 as u64 }
 
 impl PrimitiveReadWrite for bool {
     fn primitive_read_one<R: io::Read>(mut reader: R, _swap_bytes: bool) -> io::Result<bool> {
@@ -247,9 +247,14 @@ impl_primitive_serializable! {
     npy: [ (main_ty: TypeChar::Uint) (support_ty: TypeChar::Uint) ]
 }
 
-// TODO: numpy supports f16, f128
+// TODO: numpy supports f128
 impl_primitive_serializable! {
     rust: [ [4 f32] [8 f64] ]
+    npy: [ (main_ty: TypeChar::Float) (support_ty: TypeChar::Float) ]
+}
+#[cfg(feature = "half")]
+impl_primitive_serializable! {
+    rust: [ [2 f16] ]
     npy: [ (main_ty: TypeChar::Float) (support_ty: TypeChar::Float) ]
 }
 

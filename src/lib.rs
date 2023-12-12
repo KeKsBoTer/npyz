@@ -292,6 +292,8 @@ pub use arrayvec;
 pub use num_complex;
 #[cfg(feature = "zip")]
 pub use zip;
+#[cfg(feature = "half")]
+pub use half;
 
 pub use header::{DType, Field};
 #[allow(deprecated)]

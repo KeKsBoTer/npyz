@@ -1,5 +1,6 @@
-use bencher::{black_box as bb, Bencher};
 use npyz::AutoSerialize;
+use bencher::{Bencher, black_box as bb};
+use std::io::Cursor;
 use npyz::WriterBuilder;
 use std::io::Cursor;
 
